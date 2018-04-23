@@ -14,20 +14,21 @@
 
 #define VERSION "0.10"
 
-#ifdef DEBUG
+#ifdef DEBUG //PIN Values have been adopted to IRBlaster360 use (Wemos D1 mini), https://github.com/phili76/IRBlaster360
+ //Original values have been kept for possible debugging
  // dev device (wemos)
-#define RECV_PIN 13    // D7 - GPIO13
-#define TRANS_PIN 14   // D5 - GPIO14
-#define TRIGGER_PIN 15 // D8 - GPIO15
-#define LED_PIN 2      // D4 - GPIO2
+#define RECV_PIN D4    // D7 - GPIO13
+#define TRANS_PIN D1   // D5 - GPIO14
+#define TRIGGER_PIN D7 // D8 - GPIO15 (in IRBlaster360: CONFIG_PIN) 
+#define LED_PIN D2      // D4 - GPIO2
 #define BUTTON_ACTIVE_LEVEL HIGH
 
 #else
- // production device - ESP01
-#define RECV_PIN 0    // D3 - GPIO0 - IR detector/demodulator
-#define TRANS_PIN 3   // RX - GPIO3 - IR LED trasmitter
-#define TRIGGER_PIN 2 // D4 - GPIO2 - trigger reset (press and hold after boot - 5 seconds)
-//#define LED_PIN 1      // D4 - GPIO2
+ // production device - (also Wemos...)
+#define RECV_PIN D4    // D3 - GPIO0 - IR detector/demodulator
+#define TRANS_PIN D1   // RX - GPIO3 - IR LED trasmitter
+#define TRIGGER_PIN D7 // D4 - GPIO2 - trigger reset (press and hold after boot - 5 seconds)
+#define LED_PIN D2      // D4 - GPIO2
 #define BUTTON_ACTIVE_LEVEL LOW
 #endif
 
